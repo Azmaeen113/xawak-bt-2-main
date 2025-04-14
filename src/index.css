@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Roboto', sans-serif;
+    /* Removed smooth scrolling to use our custom implementation */
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-top: 80px; /* Adjust based on your header height */
+    overscroll-behavior-y: none;
+    will-change: scroll-position;
+  }
+
+  body {
+    @apply bg-black;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 1.5s ease-out;
+  }
+
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .animate-float-slow {
+    animation: float 8s ease-in-out infinite;
+    animation-delay: 4s;
+  }
+
+  .animate-scroll {
+    animation: scroll 2s ease-in-out infinite;
+  }
+
+  .animate-logo-entrance {
+    animation: logoEntrance 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .animate-planet-orbit-1 {
+    animation: planetOrbit1 15s linear infinite;
+  }
+
+  .animate-planet-orbit-2 {
+    animation: planetOrbit2 25s linear infinite;
+  }
+
+  .animate-planet-orbit-3 {
+    animation: planetOrbit3 20s linear infinite reverse;
+  }
+
+  .animate-planet-pulse-1 {
+    animation: planetPulse 3s ease-in-out infinite;
+  }
+
+  .animate-planet-pulse-2 {
+    animation: planetPulse 4s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  .animate-planet-pulse-3 {
+    animation: planetPulse 5s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .animate-tagline {
+    animation: taglineReveal 1.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-tagline-delayed {
+    animation: taglineReveal 1.5s ease-out forwards;
+    animation-delay: 0.8s;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes logoEntrance {
+  0% {
+    transform: scale(2) translate(0, 0);
+    opacity: 0;
+  }
+  20% {
+    transform: scale(2) translate(0, 0);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.2) translate(-40%, 0);
+  }
+  100% {
+    transform: scale(1) translate(-50%, 0);
+  }
+}
+
+@keyframes planetOrbit1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes planetOrbit2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes planetOrbit3 {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes planetPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+@keyframes taglineReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Scrollbar - optimized for ultra-smooth scrolling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.5);
+  border-radius: 6px;
+  border: 3px solid rgba(0, 0, 0, 0.3);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.7);
+  border: 3px solid rgba(0, 0, 0, 0.3);
+  background-clip: padding-box;
+}
+
+/* Prevent scrollbar from causing layout shifts */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Smooth Transitions */
+* {
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+/* Jupiter-style Solar System Variables */
+:root {
+  /** Jupiter color system **/
+  --system-color-dark: oklch(0% 0 0);
+  --system-color-light: oklch(100% 0 0);
+  --system-color-logo: oklch(60.07% 0.2 70 / 80%);
+  --system-color-red-100: oklch(50% 0.15 50 / 25%);
+  --system-color-red-200: oklch(55% 0.2 60 / 50%);
+  --system-color-red-300: oklch(75% 0.15 70 / 100%);
+
+  /** color themes **/
+  --system-color-theme-paths: var(--system-color-red-100) var(--system-color-red-200);
+  --system-color-theme-planets: var(--system-color-red-200) var(--system-color-red-100)
+                             var(--system-color-red-300) var(--system-color-red-200);
+
+  /** planet's radius **/
+  --planet-radius-mars: 33.895px;
+  --planet-radius-earth: 63.71px;
+  --planet-radius-venus: 60.518px;
+  --planet-radius-mercury: 24.397px;
+  --star-radius-sun: 174.085px;
+
+  /** planet's trajectories **/
+  --planet-trajectory-mars: 446.085px;
+  --planet-trajectory-earth: 332.085px;
+  --planet-trajectory-venus: 257.085px;
+  --planet-trajectory-mercury: 203.085px;
+
+  /** units **/
+  --system-margin-mars: 292px;
+  --system-margin-earth: 35px;
+  --system-margin-venus: 15px;
+  --system-margin-mercury: 38px;
+  --system-border-width: min(2px, 0.4dvmin);
+}
+
+/* Jupiter-style Solar System Styles */
+.solar-system {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transform: skewX(-45deg);
+  -webkit-transform: skewX(-45deg);
+}
+
+.solar-system .solar-system__sun {
+  z-index: 100;
+  aspect-ratio: 1;
+  width: var(--star-radius-sun);
+  border-radius: 50%;
+  background: linear-gradient(
+      135deg,
+      oklch(70% 0.2 50) 20%,
+      oklch(50% 0.2 30)
+  );
+  filter: drop-shadow(0 0 4px oklch(70% 0.2 50)) blur(2px);
+  transform: skewX(45deg);
+  -webkit-transform: skewX(45deg);
+}
+
+.solar-system article:not(.solar-system__sun) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 99;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: transparent;
+  border-width: calc(var(--system-border-width) * 2);
+  border-style: solid;
+  border-color: var(--system-color-theme-planets);
+}
+
+.solar-system article:not(.solar-system__sun)::after {
+  content: "";
+  aspect-ratio: 1;
+  width: 40%;
+  border-radius: 50%;
+  background: linear-gradient(
+      45deg,
+      oklch(50% 0.2 30) 10%,
+      oklch(60% 0.2 50) 30%,
+      oklch(75% 0.15 70) 50%,
+      oklch(60% 0.2 50) 70%
+  );
+  filter: drop-shadow(0 0 6px oklch(50% 0.2 30)) blur(1px);
+  -webkit-filter: drop-shadow(0 0 6px oklch(50% 0.2 30)) blur(1px);
+}
+
+.solar-system section {
+  position: absolute;
+  z-index: 98;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border-width: var(--system-border-width);
+  border-style: solid;
+  border-color: var(--system-color-theme-paths);
+}
+
+/* Planets animation configurations */
+.solar-system .solar-system__mercury-trajectory {
+  width: var(--planet-trajectory-mercury);
+  animation: revolution 43.9845s linear infinite;
+}
+
+.solar-system .solar-system__mercury-trajectory .solar-system__mercury-trajectory__mercury {
+  width: var(--planet-radius-mercury);
+  top: var(--system-margin-mercury);
+  animation: revolution 29.3225s linear infinite;
+}
+
+.solar-system .solar-system__venus-trajectory {
+  width: var(--planet-trajectory-venus);
+  animation: revolution 112.3335s linear infinite;
+}
+
+.solar-system .solar-system__venus-trajectory .solar-system__venus-trajectory__venus {
+  width: var(--planet-radius-venus);
+  top: var(--system-margin-venus);
+  animation: revolution 121.513s linear infinite;
+}
+
+.solar-system .solar-system__earth-trajectory {
+  width: var(--planet-trajectory-earth);
+  animation: revolution 182.6211s linear infinite;
+}
+
+.solar-system .solar-system__earth-trajectory .solar-system__earth-trajectory__earth {
+  width: var(--planet-radius-earth);
+  top: var(--system-margin-earth);
+  animation: revolution 0.4874s linear infinite;
+}
+
+.solar-system .solar-system__earth-trajectory .solar-system__earth-trajectory__earth::after {
+  animation: blink 2s linear infinite;
+}
+
+.solar-system .solar-system__mars-trajectory {
+  width: var(--planet-trajectory-mars);
+  animation: revolution 343.4425s linear infinite;
+}
+
+.solar-system .solar-system__mars-trajectory .solar-system__mars-trajectory__mars {
+  width: var(--planet-radius-mars);
+  top: var(--system-margin-mars);
+  animation: revolution 0.5128s linear infinite;
+}
+
+/* Mobile responsiveness for solar system */
+@media screen and (width < 768px) {
+  .solar-system .solar-system__sun {
+    width: calc(var(--star-radius-sun) / 2);
+  }
+
+  .solar-system .solar-system__mercury-trajectory {
+    width: calc(var(--planet-trajectory-mercury) / 2);
+  }
+
+  .solar-system .solar-system__mercury-trajectory .solar-system__mercury-trajectory__mercury {
+    width: calc(var(--planet-radius-mercury) / 2);
+    top: calc(var(--system-margin-mercury) - 20px);
+  }
+
+  .solar-system .solar-system__venus-trajectory {
+    width: calc(var(--planet-trajectory-venus) / 2);
+  }
+
+  .solar-system .solar-system__venus-trajectory .solar-system__venus-trajectory__venus {
+    width: calc(var(--planet-radius-venus) / 2);
+    top: calc(var(--system-margin-venus) - 9px);
+  }
+
+  .solar-system .solar-system__earth-trajectory {
+    width: calc(var(--planet-trajectory-earth) / 2);
+  }
+
+  .solar-system .solar-system__earth-trajectory .solar-system__earth-trajectory__earth {
+    width: calc(var(--planet-radius-earth) / 2);
+    top: calc(var(--system-margin-earth) - 19px);
+  }
+
+  .solar-system .solar-system__mars-trajectory {
+    width: calc(var(--planet-trajectory-mars) / 2);
+  }
+
+  .solar-system .solar-system__mars-trajectory .solar-system__mars-trajectory__mars {
+    width: calc(var(--planet-radius-mars) / 2);
+    top: calc(var(--system-margin-mars) - 234px);
+  }
+}
+
+/* Additional animation for Jupiter-style solar system */
+@keyframes blink {
+  50% {
+    background: oklch(60% 0.2 50);
+    filter: drop-shadow(0 0 8px oklch(70% 0.15 70));
+  }
+}
+
+/* Revolution animation for planets */
+@keyframes revolution {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
