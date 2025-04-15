@@ -46,7 +46,7 @@ const RoadmapSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-orbitron font-bold text-white mb-4">
-            Roadmap to Infinite Possibilities
+            XAWAK Roadmap
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Our journey through consciousness and space is mapped out with clear stages of development

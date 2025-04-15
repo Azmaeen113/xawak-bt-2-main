@@ -183,7 +183,7 @@ const TokenomicsSection: React.FC = () => {
           </h2>
           <p className="text-gray-300 max-w-3xl mx-auto">
             Each coin symbolizes one light-year in space. Our deflationary mechanism burns tokens with each transaction,
-            simulating the "expansion of thought." Airdrops are distributed to cosmic believers and dreamers of infinite possibilities.
+            simulating the "expansion of thought." Airdrops are distributed to cosmic believers and community members.
           </p>
         </div>
 

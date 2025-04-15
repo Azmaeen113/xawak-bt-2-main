@@ -10,7 +10,7 @@ import TeamSection from './components/TeamSection';
 import CommunitySection from './components/CommunitySection';
 import WhitepaperSection from './components/WhitepaperSection';
 import BundlesSection from './components/BundlesSection';
-import InfinityLogoSection from './components/InfinityLogoSection';
+
 import Footer from './components/Footer';
 import SparkleEffect from './components/SparkleEffect';
 
@@ -61,7 +61,7 @@ function App() {
       <TokenomicsSection />
       <RoadmapSection />
       <TeamSection />
-      <InfinityLogoSection />
+
       <CommunitySection />
       <WhitepaperSection />
       <Footer />
